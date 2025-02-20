@@ -15,10 +15,11 @@ export default NextAuth({
   ],
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    async redirect({ url: _url, baseUrl: _baseUrl }) {
-      // Redirige siempre a la URL deseada
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    async redirect({ url, baseUrl }) {
       return "https://www.misioninnova.org/p/biblioteca.html";
     },
   },
 });
+
 
