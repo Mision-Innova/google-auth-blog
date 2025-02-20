@@ -15,9 +15,10 @@ export default NextAuth({
   ],
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    async redirect({ url, baseUrl }) {
-      // Siempre redirige a la URL deseada
+    async redirect({ url: _url, baseUrl: _baseUrl }) {
+      // Redirige siempre a la URL deseada
       return "https://www.misioninnova.org/p/biblioteca.html";
     },
   },
 });
+
