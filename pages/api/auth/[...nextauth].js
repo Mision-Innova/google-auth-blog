@@ -9,15 +9,16 @@ export default NextAuth({
       authorization: {
         params: {
           scope:
-            "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/userinfo.profile " +
+            "https://www.googleapis.com/auth/userinfo.email " +
+            "https://www.googleapis.com/auth/drive.file",
         },
       },
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    async redirect() {
+    // Solución 1: Usar convención _ para variables no utilizadas
+    async redirect({ url: _url, baseUrl: _baseUrl }) {
       return "https://www.misioninnova.org/p/biblioteca.html";
     },
-  },
-});
