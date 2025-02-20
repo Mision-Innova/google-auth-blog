@@ -8,18 +8,16 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       authorization: {
         params: {
-          scope: "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/drive.file",
+          scope:
+            "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/drive.file",
         },
       },
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    async redirect({ url, baseUrl }) {
+    async redirect() {
       return "https://www.misioninnova.org/p/biblioteca.html";
     },
   },
 });
-
-
