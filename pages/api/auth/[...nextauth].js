@@ -10,3 +10,4 @@ export default NextAuth({
   ],
   secret: process.env.NEXTAUTH_SECRET, // <-- Agregas esta línea
 });
+
